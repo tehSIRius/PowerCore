@@ -1,0 +1,10 @@
+[build]
+target = "power_core_x86.json"
+
+[target.'cfg(target_os = "none")']
+runner = "bootimage runner"
+
+[unstable]
+build-std = ["core", "compiler_builtins"]
+# TODO: Remove this in the future to not depend on memset, memcpy and memcmp in the future
+build-std-features = ["compiler-builtins-mem"]
